@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{ title or metadata.title }}</title>
+		<style>
+			{%- set inlineCSS %}
+				{# Add your inline css styles here like below example #}
+				{# h1 { color: yourPreferredColor; } #}
+				{# or add it in separate stylesheet like below example #}
+				{# {% include "inline.css" %} #}
+				h1 { color: blue; }
+			{% endset %}
+			{{ inlineCSS | cssmin | safe }}
+		</style>
+		<link rel="stylesheet" href="/index.css"/>
+	</head>
+	<body>
+		{{ layoutContent | safe  }}
+	</body>
+</html>
